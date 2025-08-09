@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sky's Attitude - Weather with Personality</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="app">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-content">
+          <div class="logo">
+            <div class="cloud-logo">☁️</div>
+            <h1 class="site-title">Sky's Attitude</h1>
+          </div>
+          <p class="tagline">WHEN THE SKY TALKS BACK...!!!</p>
+        </div>
+      </header>
+
+      <!-- Main Weather Container -->
+      <main class="weather-container">
+        <!-- Search Section -->
+        <div class="search-section">
+          <div class="search-box">
+            <input type="text" id="cityInput" placeholder="Enter city name..." />
+            <button id="searchBtn">🔍</button>
+          </div>
+        </div>
+
+        <!-- Weather Display -->
+        <div class="weather-display">
+          <div class="weather-content">
+            <div class="weather-icon">☀️</div>
+            <div class="temperature">25°C</div>
+            <div class="weather-description">Sunny</div>
+            <div class="city-name">London, UK</div>
+            
+            <div class="weather-details">
+              <div class="detail-item">
+                <span class="detail-label">Humidity</span>
+                <span class="detail-value">65%</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Wind Speed</span>
+                <span class="detail-value">12 km/h</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Feels Like</span>
+                <span class="detail-value">28°C</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Pressure</span>
+                <span class="detail-value">1013 hPa</span>
+              </div>
+            </div>
+            
+            <div class="sarcastic-comment">
+              <div class="comment-stickers">
+                <span class="sticker sticker-1">😎</span>
+                <span class="sticker sticker-2">🌤️</span>
+              </div>
+              <div class="comment-text">
+                There's a probability of rain, but don't bother with an umbrella! We can enjoy the rain and the inevitable soaking that follows. Because who needs dry clothes anyway?
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Weather Cards -->
+        <div class="weather-cards">
+          <div class="weather-card rainy">
+            <div class="card-icon">🌧️</div>
+            <div class="card-temp">18°C</div>
+            <div class="card-desc">Rainy</div>
+            <div class="card-comment">Great! Mother Nature decided to have a breakdown today. Grab your tissues... for your nose, not hers!</div>
+          </div>
+          
+          <div class="weather-card cloudy">
+            <div class="card-icon">☁️</div>
+            <div class="card-temp">22°C</div>
+            <div class="card-desc">Cloudy</div>
+            <div class="card-comment">The sky is having commitment issues again... Can't decide if it wants to rain or shine. Sounds familiar?</div>
+          </div>
+          
+          <div class="weather-card snowy">
+            <div class="card-icon">❄️</div>
+            <div class="card-temp">-2°C</div>
+            <div class="card-desc">Snowy</div>
+            <div class="card-comment">Free ice everywhere! But your toes will pay the ultimate price. Hope you like the color blue... on your feet!</div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>© 2025 Sky's Attitude - Because weather forecasts need personality</p>
+      </footer>
+    </div>
+<script src="script.js"></script>
+  </body>
+</html>

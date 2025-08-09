@@ -4,102 +4,59 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sky's Attitude - Weather with Personality</title>
+    <title>Welcome to Sky's Attitude</title>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="frontpage.css">
   </head>
   <body>
+    <!-- Logo in top-left corner -->
+    <div class="logo-corner">
+  <div class="corner-logo">
+    <img src="logo.jpg" alt="Sky's Attitude Logo" class="corner-image" />
+    <span class="corner-title">Sky's Attitude</span>
+  </div>
+</div>
+
+
+    <!-- Main container -->
     <div id="app">
-      <!-- Header -->
-      <header class="header">
-        <div class="header-content">
-          <div class="logo">
-            <div class="cloud-logo">☁️</div>
-            <h1 class="site-title">Sky's Attitude</h1>
-          </div>
-          <p class="tagline">Weather with a side of sass</p>
-        </div>
-      </header>
-
-      <!-- Main Weather Container -->
-      <main class="weather-container">
-        <!-- Search Section -->
-        <div class="search-section">
-          <div class="search-box">
-            <input type="text" id="cityInput" placeholder="Enter city name..." />
-            <button id="searchBtn">🔍</button>
-          </div>
+      <!-- Central content -->
+      <div class="main-content" id="mainContent">
+        <!-- Welcome section -->
+        <div class="welcome-section">
+          <h1 class="main-title">Welcome to</h1>
+          <h2 class="brand-title">Sky's Attitude</h2>
+          <p class="subtitle">Weather with a side of sass</p>
         </div>
 
-        <!-- Weather Display -->
-        <div class="weather-display">
-          <div class="weather-content">
-            <div class="weather-icon">☀️</div>
-            <div class="temperature">25°C</div>
-            <div class="weather-description">Sunny</div>
-            <div class="city-name">London, UK</div>
-            
-            <div class="weather-details">
-              <div class="detail-item">
-                <span class="detail-label">Humidity</span>
-                <span class="detail-value">65%</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Wind Speed</span>
-                <span class="detail-value">12 km/h</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Feels Like</span>
-                <span class="detail-value">28°C</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Pressure</span>
-                <span class="detail-value">1013 hPa</span>
+        <!-- Click counter button -->
+        <div class="button-container">
+          <button id="clickButton" class="magic-button">
+            <div class="button-content">
+              <div class="button-icon">🌟</div>
+              <div class="button-text">Click Me!</div>
+              <div class="click-counter">
+                Clicks: <span id="clickCount">0</span>/20
               </div>
             </div>
-            
-            <div class="sarcastic-comment">
-              <div class="comment-stickers">
-                <span class="sticker sticker-1">😎</span>
-                <span class="sticker sticker-2">🌤️</span>
-              </div>
-              <div class="comment-text">
-                There's a probability of rain, but don't bother with an umbrella! We can enjoy the rain and the inevitable soaking that follows. Because who needs dry clothes anyway?
-              </div>
-            </div>
-          </div>
+          </button>
         </div>
+      </div>
 
-        <!-- Additional Weather Cards -->
-        <div class="weather-cards">
-          <div class="weather-card rainy">
-            <div class="card-icon">🌧️</div>
-            <div class="card-temp">18°C</div>
-            <div class="card-desc">Rainy</div>
-            <div class="card-comment">Great! Mother Nature decided to have a breakdown today. Grab your tissues... for your nose, not hers!</div>
-          </div>
-          
-          <div class="weather-card cloudy">
-            <div class="card-icon">☁️</div>
-            <div class="card-temp">22°C</div>
-            <div class="card-desc">Cloudy</div>
-            <div class="card-comment">The sky is having commitment issues again... Can't decide if it wants to rain or shine. Sounds familiar?</div>
-          </div>
-          
-          <div class="weather-card snowy">
-            <div class="card-icon">❄️</div>
-            <div class="card-temp">-2°C</div>
-            <div class="card-desc">Snowy</div>
-            <div class="card-comment">Free ice everywhere! But your toes will pay the ultimate price. Hope you like the color blue... on your feet!</div>
-          </div>
+      <!-- Congratulations section (hidden initially) -->
+      <div class="congratulations-section" id="congratsSection" style="display: none;">
+        <div class="congrats-content">
+          <div class="congrats-icon">🎉</div>
+          <h1 class="congrats-title">Congratulations!</h1>
+          <p class="congrats-message">You've unlocked the weather experience!</p>
+          <div class="congrats-emoji">🌈✨🎊</div>
         </div>
-      </main>
+      </div>
 
-      <!-- Footer -->
-      <footer class="footer">
-        <p>© 2025 Sky's Attitude - Because weather forecasts need personality</p>
-      </footer>
+      <!-- Confetti container -->
+      <div id="confetti-container" class="confetti-container"></div>
     </div>
-<script src="script.js"></script>
+
+    <script src="frontpage.js"></script>
   </body>
 </html>

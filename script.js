@@ -29,54 +29,54 @@ const weatherTypes = [
 
 // Completely useless and opposite weather advice
 const uselessAdvice = {
-  'clear': [
-    "Perfect sunny weather! Time to stay indoors with all curtains closed. Your vampire lifestyle will thank you later!",
-    "Beautiful sunshine outside! Better wear your heaviest winter coat and complain about how bright it is. Sunglasses indoors are mandatory!",
-    "Gorgeous clear skies! Perfect day to schedule that important indoor meeting and avoid all that horrible vitamin D. Who needs happiness anyway?",
-    "Sunny day ahead! Time to water your plants with ice cubes and wonder why they're not growing. Science is overrated!",
-    "Clear weather! Excellent opportunity to wear all black and stand in the shade. Embrace your inner goth!"
-  ],
-  'clouds': [
-    "Cloudy skies! Great news - you can finally stop using moisturizer. The lack of sun will do wonders for your pale complexion!",
-    "Overcast weather! Time to wear your brightest neon colors so you can blend perfectly with the gray atmosphere. Camouflage level: expert!",
-    "Cloudy day! Perfect excuse to tell everyone how the weather matches your soul. Very original and not dramatic at all!",
-    "Gray skies ahead! Ideal time to plan that outdoor photoshoot. Natural lighting is so overrated anyway!",
-    "Cloudy conditions! Great day to complain about the lack of shadows. Who needs contrast in life?"
+  'hot': [
+    "Don't drink water, test your limits.",
+    "Wear black to absorb maximum suffering.",
+    "Eat spicy food, make it hotter.",
+    "Run at noon for 'extra cardio'.",
+    "Wear a winter jacket, confuse the sun."
   ],
   'rain': [
-    "Rain is coming! Don't bother with an umbrella - embrace the wet dog look! It's very fashionable in some parallel universe!",
-    "Rainy weather ahead! Perfect time to wear your best suede shoes and leave all windows open. What could possibly go wrong?",
-    "Precipitation expected! Great day to style your hair extra nice and plan that outdoor picnic you've been postponing for months!",
-    "Wet weather! Excellent opportunity to wash your car and hang laundry outside. Mother Nature loves helping with chores!",
-    "Rain forecast! Time to take your electronics for a nice outdoor walk. They need fresh air too!"
+    "Don't use an umbrella, taste the sky.",
+    "Dance in puddles, aim for pneumonia.",
+    "Eat ice cream in the downpour.",
+    "Wear socks with sandals for max squish.",
+    "Leave windows open for that free shower."
   ],
-  'thunderstorm': [
-    "Thunderstorms approaching! Excellent time to go flying a kite with a metal string. Benjamin Franklin would be so proud of your scientific spirit!",
-    "Stormy weather! Perfect conditions for that outdoor metal concert you've been planning. The lightning will add amazing special effects!",
-    "Thunder and lightning! Ideal time to stand under the tallest tree and contemplate life's mysteries. Very zen!",
-    "Electrical storm incoming! Great day to take a nice relaxing bath while using all your electronic devices. Multitasking at its finest!",
-    "Thunderstorm alert! Perfect weather for that rooftop yoga session. Connect with nature's raw power!"
+  'cloudy': [
+    "Stare at the sky until it does something.",
+    "Take sunglasses, you never know.",
+    "Complain it's too gloomy, then miss the sun.",
+    "Pretend you're in a black-and-white movie.",
+    "Nap, since the sun clearly did."
   ],
   'snow': [
-    "Snow is falling! Time to break out those flip-flops and shorts. Who needs warm clothing when you have hypothermia to look forward to?",
-    "Snowy conditions! Perfect weather for that convertible car ride with the top down. Frostbite is just nature's way of giving you free ice cubes!",
-    "Winter wonderland ahead! Great day to forget your coat and pretend you're a penguin. They seem happy enough in Antarctica!",
-    "Snow forecast! Excellent time to plan that beach volleyball tournament. Snow angels can wait!",
-    "Blizzard conditions! Perfect opportunity to test if your summer clothes are really 'all-season' as advertised!"
+    "Wear shorts to prove your toughness.",
+    "Lick metal poles for free thrills.",
+    "Make snow angels in just a T-shirt.",
+    "Drink cold soda for that 'extra chill'.",
+    "Skip gloves, let frostbite say hello."
   ],
-  'mist': [
-    "Misty weather! Excellent visibility for that important driving test. Who needs to see where they're going anyway?",
-    "Foggy conditions! Perfect time to play hide and seek with moving vehicles. Very thrilling and not dangerous at all!",
-    "Hazy atmosphere! Great day to lose your way in your own neighborhood. Adventure awaits around every invisible corner!",
-    "Mist rolling in! Ideal conditions for that outdoor photography session. Blurry photos are so artistic!",
-    "Foggy day! Perfect time to practice your echolocation skills. Dolphins make it look so easy!"
+  'windy': [
+    "Use an umbrella, become Mary Poppins.",
+    "Wear a hat you're ready to lose.",
+    "Fly a kite indoors for safety.",
+    "Lean into the wind and hope.",
+    "Stand in it and scream for fun."
   ],
-  'extreme': [
-    "Extreme weather conditions! Perfect time to question all your life choices while nature shows off its dramatic side!",
-    "Severe weather alert! Mother Nature is having one of her episodes again. Time to hide indoors and order pizza!",
-    "Wild weather incoming! Great day to realize that humans are basically hairless apes pretending to control nature!",
-    "Apocalyptic conditions! Excellent opportunity to practice your survival skills by ordering takeout!",
-    "Chaotic weather! Perfect time to appreciate the reliability of your weather app's complete randomness!"
+  'storm': [
+    "Hold a metal rod, test your luck.",
+    "Go swimming for that electric spa.",
+    "Climb the tallest tree to 'see better'.",
+    "Charge your phone outside.",
+    "Invite lightning for a selfie."
+  ],
+  'fog': [
+    "Drive faster, the mystery adds spice.",
+    "Walk without a flashlight for surprise endings.",
+    "Pretend you're in a horror movie.",
+    "Yell 'Marco' and wait for 'Polo'.",
+    "Wear sunglasses for extra confusion."
   ]
 };
 
@@ -168,11 +168,15 @@ function displayWeatherData(data) {
   feelsLikeValue.textContent = `${data.main.feels_like}°C`;
   pressureValue.textContent = `${data.main.pressure} hPa`;
   
-  // Get useless advice based on weather
-  const weatherCategory = getWeatherCategory(data.weather[0].main);
+  // Get useless advice based on weather - FIXED MAPPING
+  const weatherCategory = getWeatherCategory(data.weather[0].main, data.main.temp);
   const adviceArray = uselessAdvice[weatherCategory];
-  const randomAdvice = adviceArray[Math.floor(Math.random() * adviceArray.length)];
-  commentText.textContent = randomAdvice;
+  if (adviceArray) {
+    const randomAdvice = adviceArray[Math.floor(Math.random() * adviceArray.length)];
+    commentText.textContent = randomAdvice;
+  } else {
+    commentText.textContent = "Weather exists. That's about all we can confirm.";
+  }
   
   // Update weather cards with random scenarios
   updateWeatherCards();
@@ -181,18 +185,24 @@ function displayWeatherData(data) {
   animateWeatherUpdate();
 }
 
-// Get weather category for advice
-function getWeatherCategory(weatherMain) {
+// Get weather category for advice - FIXED TO MATCH USELESS ADVICE KEYS
+function getWeatherCategory(weatherMain, temperature) {
   const weather = weatherMain.toLowerCase();
   
-  if (weather.includes('clear')) return 'clear';
-  if (weather.includes('cloud')) return 'clouds';
-  if (weather.includes('rain')) return 'rain';
-  if (weather.includes('thunder') || weather.includes('storm')) return 'thunderstorm';
-  if (weather.includes('snow')) return 'snow';
-  if (weather.includes('mist') || weather.includes('fog') || weather.includes('haze')) return 'mist';
+  // Check temperature for hot weather
+  if (temperature > 25) return 'hot';
   
-  return 'extreme';
+  if (weather.includes('rain') || weather.includes('drizzle')) return 'rain';
+  if (weather.includes('cloud')) return 'cloudy';
+  if (weather.includes('snow')) return 'snow';
+  if (weather.includes('thunder') || weather.includes('storm')) return 'storm';
+  if (weather.includes('mist') || weather.includes('fog') || weather.includes('haze')) return 'fog';
+  if (weather.includes('wind') || weather.includes('squall')) return 'windy';
+  
+  // Default for clear/sunny weather
+  if (weather.includes('clear')) return temperature > 25 ? 'hot' : 'cloudy';
+  
+  return 'cloudy'; // Default fallback
 }
 
 // Update weather cards with random data

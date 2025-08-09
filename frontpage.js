@@ -245,7 +245,7 @@ class FrontPage {
         setTimeout(() => {
             // Redirect to main page
             // Replace 'main.html' with your actual main page filename
-            window.location.href = 'index.html'; // or 'main.html' or whatever your main page is called
+            window.location.href = 'second.html'; // or 'main.html' or whatever your main page is called
         }, 500);
     }
     

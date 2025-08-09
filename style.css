@@ -133,22 +133,22 @@ filter: drop-shadow(0 8px 20px var(--accent-pink));
 }
 
 .site-title {
-  font-family: 'Poppins', 'Inter', sans-serif;
-  font-weight: 900; /* Bold */
-  font-size: 3rem; /* Bigger text */
-  background: linear-gradient(90deg, #0d1b2a, #1b263b, #415a77); /* Dark Sapphire */
+  font-family: 'Fredoka One', cursive;
+  font-size: 4rem;
+  font-weight: 400;
+  background: linear-gradient(90deg, #0d1b2a, #1b263b, #415a77);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text; /* For Firefox */
-  color: transparent; /* Fallback */
-  z-index: 2;
+  background-clip: text;
+  color: transparent;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: -0.02em;
   line-height: 1.1;
   filter: contrast(1.1);
-  transition: all 0.3s ease;
+  margin-bottom: 15px;
+  animation: textGlow 3s ease-in-out infinite;
 }
 
 
