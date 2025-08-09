@@ -1,0 +1,663 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Open+Sans:wght@400;600;700&display=swap');
+
+/* CSS Variables matching main page */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --sunny-gradient: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  --rainy-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --cloudy-gradient: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+  --snowy-gradient: linear-gradient(135deg, #e6ddd4 0%, #d5def5 100%);
+  --stormy-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  --windy-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  --sunset-gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+  --ocean-gradient: linear-gradient(135deg, #667db6 0%, #0082c8 25%, #0082c8 50%, #667db6 100%);
+  --forest-gradient: linear-gradient(135deg, #134e5e 0%, #71b280 100%);
+
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --text-light: #ffffff;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.2);
+  --shadow-heavy: rgba(0, 0, 0, 0.3);
+  --shadow-colorful: rgba(255, 105, 180, 0.3);
+
+  --accent-pink: #ff69b4;
+  --accent-purple: #9b59b6;
+  --accent-orange: #f39c12;
+  --accent-green: #2ecc71;
+  --accent-blue: #3498db;
+  --accent-red: #e74c3c;
+  --accent-yellow: #f1c40f;
+  --accent-cyan: #1abc9c;
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: var(--primary-gradient);
+  min-height: 100vh;
+  color: var(--text-primary);
+  transition: all 0.8s ease;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Animated Background Elements */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(255, 105, 180, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(52, 152, 219, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(155, 89, 182, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+  animation: backgroundShift 10s ease-in-out infinite;
+}
+
+@keyframes backgroundShift {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* Logo Corner */
+.logo-corner {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  animation: slideInLeft 1s ease-out;
+}
+
+.corner-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  padding: 15px 20px;
+  border-radius: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px var(--shadow-light);
+  transition: all 0.3s ease;
+}
+
+.corner-logo:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 12px 40px var(--shadow-colorful);
+}
+
+.corner-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: drop-shadow(0 4px 12px var(--shadow-colorful));
+}
+
+.corner-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.2rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, #0d1b2a, #1b263b, #415a77);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  filter: contrast(1.1);
+}
+
+@keyframes floatCloud {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Main App Container */
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+}
+
+/* Main Content */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 50px;
+  animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+/* Welcome Section */
+.welcome-section {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 30px;
+  padding: 40px 50px;
+  box-shadow:
+    0 20px 60px var(--shadow-light),
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  overflow: hidden;
+  animation: slideInDown 1s ease-out;
+}
+
+.welcome-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, var(--accent-pink), var(--accent-purple), var(--accent-blue), var(--accent-green));
+  opacity: 0.08;
+  z-index: -1;
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+
+.main-title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--text-light);
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px var(--shadow-medium);
+  animation: fadeIn 1s ease-out 0.3s both;
+}
+
+.brand-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 4rem;
+  font-weight: 400;
+  background: linear-gradient(90deg, #0d1b2a, #1b263b, #415a77);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  filter: contrast(1.1);
+  margin-bottom: 15px;
+  animation: textGlow 3s ease-in-out infinite;
+}
+
+@keyframes textGlow {
+  0%, 100% { filter: contrast(1.2) brightness(1.1); }
+  50% { filter: contrast(1.3) brightness(1.2); }
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: var(--text-light);
+  font-weight: 600;
+  opacity: 0.95;
+  text-shadow: 2px 2px 4px var(--shadow-medium);
+  animation: fadeIn 1s ease-out 0.6s both;
+}
+
+/* Button Container */
+.button-container {
+  animation: bounceIn 1.2s ease-out 0.8s both;
+}
+
+/* Magic Button */
+.magic-button {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  padding: 40px 60px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow:
+    0 20px 60px var(--shadow-light),
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.magic-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.magic-button:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow:
+    0 30px 80px var(--shadow-colorful),
+    0 0 0 2px rgba(255, 255, 255, 0.4),
+    inset 0 2px 0 rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.magic-button:active {
+  transform: translateY(-5px) scale(1.02);
+  transition: all 0.1s ease;
+}
+
+.button-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.button-icon {
+  font-size: 4rem;
+  animation: rotateIcon 2s ease-in-out infinite;
+  filter: drop-shadow(0 8px 16px var(--shadow-colorful));
+}
+
+@keyframes rotateIcon {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(10deg) scale(1.1); }
+}
+
+.button-text {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2.5rem;
+  color: var(--text-light);
+  font-weight: 400;
+  text-shadow: 2px 2px 4px var(--shadow-heavy);
+  background: linear-gradient(45deg, var(--accent-pink), var(--accent-purple), var(--accent-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.click-counter {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2rem;
+  color: var(--text-light);
+  font-weight: 600;
+  opacity: 0.9;
+  text-shadow: 1px 1px 3px var(--shadow-medium);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#clickCount {
+  color: var(--accent-pink);
+  font-weight: 700;
+  text-shadow: 1px 1px 2px var(--shadow-medium);
+}
+
+/* Congratulations Section */
+.congratulations-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+  animation: zoomIn 0.8s ease-out;
+}
+
+.congrats-content {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border-radius: 35px;
+  padding: 60px 80px;
+  box-shadow:
+    0 25px 80px var(--shadow-heavy),
+    0 0 0 2px rgba(255, 255, 255, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.4);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.congrats-content::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: rotate(45deg);
+  animation: shimmer 2s linear infinite;
+}
+
+.congrats-icon {
+  font-size: 6rem;
+  margin-bottom: 20px;
+  animation: bounceIcon 1s ease-out infinite;
+  filter: drop-shadow(0 10px 20px var(--shadow-colorful));
+}
+
+@keyframes bounceIcon {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-15px) scale(1.1); }
+}
+
+.congrats-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 4rem;
+  color: var(--text-light);
+  margin-bottom: 20px;
+  text-shadow: 3px 3px 6px var(--shadow-heavy);
+  background: linear-gradient(45deg, var(--accent-yellow), var(--accent-orange), var(--accent-red), var(--accent-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: titleRainbow 2s ease-in-out infinite;
+}
+
+@keyframes titleRainbow {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.3); }
+}
+
+.congrats-message {
+  font-size: 1.8rem;
+  color: var(--text-light);
+  font-weight: 600;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px var(--shadow-medium);
+}
+
+.congrats-emoji {
+  font-size: 3rem;
+  animation: emojiDance 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 5px 10px var(--shadow-colorful));
+}
+
+@keyframes emojiDance {
+  0%, 100% { transform: rotate(-5deg) scale(1); }
+  25% { transform: rotate(5deg) scale(1.1); }
+  50% { transform: rotate(-3deg) scale(1.05); }
+  75% { transform: rotate(3deg) scale(1.1); }
+}
+
+/* Confetti Container */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--accent-pink);
+  animation: confettiFall 3s linear forwards;
+}
+
+.confetti-piece:nth-child(2n) { background: var(--accent-blue); }
+.confetti-piece:nth-child(3n) { background: var(--accent-green); }
+.confetti-piece:nth-child(4n) { background: var(--accent-yellow); }
+.confetti-piece:nth-child(5n) { background: var(--accent-orange); }
+.confetti-piece:nth-child(6n) { background: var(--accent-purple); }
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Button Click Animation */
+.button-clicked {
+  animation: buttonPulse 0.3s ease-out;
+}
+
+@keyframes buttonPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* General Animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .corner-title {
+    font-size: 1rem;
+  }
+
+  .main-title {
+    font-size: 2rem;
+  }
+
+  .brand-title {
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .magic-button {
+    padding: 30px 40px;
+  }
+
+  .button-text {
+    font-size: 2rem;
+  }
+
+  .button-icon {
+    font-size: 3rem;
+  }
+
+  .congrats-content {
+    padding: 40px 50px;
+  }
+
+  .congrats-title {
+    font-size: 3rem;
+  }
+
+  .congrats-message {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-corner {
+    top: 15px;
+    left: 15px;
+  }
+
+  .corner-logo {
+    padding: 12px 16px;
+  }
+
+  .corner-cloud {
+    font-size: 1.5rem;
+  }
+
+  .corner-title {
+    font-size: 0.9rem;
+  }
+
+  .welcome-section {
+    padding: 30px 35px;
+  }
+
+  .main-title {
+    font-size: 1.5rem;
+  }
+
+  .brand-title {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .magic-button {
+    padding: 25px 35px;
+  }
+
+  .button-text {
+    font-size: 1.8rem;
+  }
+
+  .button-icon {
+    font-size: 2.5rem;
+  }
+
+  .click-counter {
+    font-size: 1rem;
+  }
+
+  .congrats-content {
+    padding: 30px 40px;
+  }
+
+  .congrats-title {
+    font-size: 2.5rem;
+  }
+
+  .congrats-icon {
+    font-size: 4rem;
+  }
+
+  .congrats-emoji {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .brand-title {
+    font-size: 2rem;
+  }
+
+  .button-text {
+    font-size: 1.5rem;
+  }
+
+  .congrats-title {
+    font-size: 2rem;
+  }
+}
