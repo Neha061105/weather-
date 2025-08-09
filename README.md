@@ -1,64 +1,53 @@
 <img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
 
 
-# [Project Name] 🎯
+# [Sky's Attitude] 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: [CodeVerse]
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: [Neha M] - [Govt. Engineering College, Palakkad]
+- Member 2: [Mohammed Shahid] - [Govt. Engineering College, Palakkad]
+
 
 ### Project Description
-[2-3 lines about what your project does]
+[This is a lighthearted “useless” web project that starts with a playful Challenge button leading to the main page. On the main page, the user enters a location, and the site pretends to fetch the weather—but instead of real data, it generates a completely random temperature and gives an intentionally opposite, nonsensical piece of advice. It’s a fun twist on a weather app, built purely for humor and entertainment rather than accuracy.]
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+[Sometimes people want weather information… but it’s too boring when it’s correct.]
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+[A web app that takes your location and gives you a completely random temperature along with a totally wrong piece of weather advice. Rain? We’ll tell you to wear sunglasses. Sunny? Don’t forget your umbrella. Accuracy? Never heard of it.]
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+- [Languages used : html,css,javaScript]
+- [Tools used : VS Code]
 
-For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
 
 ### Implementation
 For Software:
 # Installation
-[commands]
+No installation needed — just open the index.html file in your browser.
 
 # Run
-[commands]
+Click the Challenge button on the first page.
+
+Enter a location.
+
+Enjoy your totally random weather and the most wrong advice you’ll ever get.
+
+
 
 ### Project Documentation
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
-
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
-
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
 
 For Hardware:
 
